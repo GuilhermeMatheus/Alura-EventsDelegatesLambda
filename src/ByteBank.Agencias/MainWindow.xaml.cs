@@ -22,7 +22,8 @@ namespace ByteBank.Agencias
     public partial class MainWindow : Window
     {
         private ByteBankEntities _db = new ByteBankEntities();
-        private ListBoxAgencias lstAgencias;
+        private ListBoxAgencias _lstAgencias;
+        private ButtonApagar _btnApagar;
 
         public Agencia AgenciaAtual { get; private set; }
 
@@ -43,22 +44,33 @@ namespace ByteBank.Agencias
             Endereco.Text = AgenciaAtual?.Endereco;
         }
 
+        public void ApagarAgenciaAtual()
+        {
+            _db.Agencias.Remove(AgenciaAtual);
+            _db.SaveChanges();
+            AtualizarLista();
+        }
+
         private void IniciarControles()
         {
-            lstAgencias = new ListBoxAgencias(this) { Width = 247.5, Height = 290 };
+            _lstAgencias = new ListBoxAgencias(this) { Width = 247.5, Height = 290 };
+            container.Children.Add(_lstAgencias);
+            Canvas.SetTop(_lstAgencias, 15);
+            Canvas.SetLeft(_lstAgencias, 15);
 
-            container.Children.Add(lstAgencias);
-            Canvas.SetTop(lstAgencias, 15);
-            Canvas.SetLeft(lstAgencias, 15);
+            _btnApagar = new ButtonApagar(this) { Width = 120, Content = "Apagar" };
+            container.Children.Add(_btnApagar);
+            Canvas.SetBottom(_btnApagar, 15);
+            Canvas.SetRight(_btnApagar, 15);
 
             AtualizarLista();
         }
 
         private void AtualizarLista()
         {
-            lstAgencias.Items.Clear();
+            _lstAgencias.Items.Clear();
             foreach (var item in _db.Agencias)
-                lstAgencias.Items.Add(item);
+                _lstAgencias.Items.Add(item);
         }
     }
 }
