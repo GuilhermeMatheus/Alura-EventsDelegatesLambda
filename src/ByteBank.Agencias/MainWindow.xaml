@@ -6,7 +6,18 @@
         xmlns:local="clr-namespace:ByteBank.Agencias"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+    <Canvas Name="container">
+        <StackPanel Canvas.Left="280" Canvas.Top="15">
+            <TextBlock Text="Número" FontWeight="Bold"/>
+            <TextBlock Name="Numero"/>
+            <TextBlock Text="Nome" FontWeight="Bold"/>
+            <TextBlock Name="Nome"/>
+            <TextBlock Text="Telefone" FontWeight="Bold"/>
+            <TextBlock Name="Telefone"/>
+            <TextBlock Text="Descrição" FontWeight="Bold"/>
+            <TextBlock Name="Descricao"/>
+            <TextBlock Text="Endereço" FontWeight="Bold"/>
+            <TextBlock Name="Endereco"/>
+        </StackPanel>
+    </Canvas>
 </Window>
