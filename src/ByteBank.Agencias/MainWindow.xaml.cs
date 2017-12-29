@@ -22,8 +22,8 @@ namespace ByteBank.Agencias
     public partial class MainWindow : Window
     {
         private ByteBankEntities _db = new ByteBankEntities();
-        private ListBoxAgencias _lstAgencias;
-        private ButtonApagar _btnApagar;
+        private ListBox _lstAgencias;
+        private Button _btnApagar;
 
         public Agencia AgenciaAtual { get; private set; }
 
@@ -53,17 +53,39 @@ namespace ByteBank.Agencias
 
         private void IniciarControles()
         {
-            _lstAgencias = new ListBoxAgencias(this) { Width = 247.5, Height = 290 };
+            _lstAgencias = new ListBox { Width = 247.5, Height = 290 };
             container.Children.Add(_lstAgencias);
             Canvas.SetTop(_lstAgencias, 15);
             Canvas.SetLeft(_lstAgencias, 15);
 
-            _btnApagar = new ButtonApagar(this) { Width = 120, Content = "Apagar" };
+            _lstAgencias.SelectionChanged += new SelectionChangedEventHandler(LstAgenciasSelectionChanged);
+
+            _btnApagar = new Button { Width = 120, Content = "Apagar" };
             container.Children.Add(_btnApagar);
             Canvas.SetBottom(_btnApagar, 15);
             Canvas.SetRight(_btnApagar, 15);
 
+            _btnApagar.Click += new RoutedEventHandler(BtnApagarClick);
+
             AtualizarLista();
+        }
+
+        private void LstAgenciasSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            AtualizarAgenciaAtual((Agencia)_lstAgencias.SelectedItem);
+        }
+
+        private void BtnApagarClick(object sender, RoutedEventArgs e)
+        {
+            var resposta =
+               MessageBox.Show(
+                   $"Você deseja mesmo apagar a agência {AgenciaAtual}?",
+                   "Confirmação",
+                   MessageBoxButton.YesNo,
+                   MessageBoxImage.Question);
+
+            if (resposta == MessageBoxResult.Yes)
+                ApagarAgenciaAtual();
         }
 
         private void AtualizarLista()
