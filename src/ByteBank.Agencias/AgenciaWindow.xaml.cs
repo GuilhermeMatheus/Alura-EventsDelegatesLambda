@@ -40,11 +40,14 @@ namespace ByteBank.Agencias
             btnOk.Click += (sender, e) => DialogResult = true;
             btnCancelar.Click += (sender, e) => DialogResult = false;
 
-            txtNumero.ValidandoCampoDeTexto += String.IsNullOrEmpty;
-            txtNome.ValidandoCampoDeTexto += String.IsNullOrEmpty;
-            txtTelefone.ValidandoCampoDeTexto += String.IsNullOrEmpty;
-            txtDescricao.ValidandoCampoDeTexto += String.IsNullOrEmpty;
-            txtEndereco.ValidandoCampoDeTexto += String.IsNullOrEmpty;
+
+            ValidarCampoDeTexto validacaoNull = texto => !String.IsNullOrEmpty(texto);
+
+            txtNumero.ValidandoCampoDeTexto += validacaoNull;
+            txtNome.ValidandoCampoDeTexto += validacaoNull;
+            txtTelefone.ValidandoCampoDeTexto += validacaoNull;
+            txtDescricao.ValidandoCampoDeTexto += validacaoNull;
+            txtEndereco.ValidandoCampoDeTexto += validacaoNull;
         }
     }
 }
