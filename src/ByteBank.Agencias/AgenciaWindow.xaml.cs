@@ -40,51 +40,20 @@ namespace ByteBank.Agencias
             btnOk.Click += new RoutedEventHandler(btnOk_Click);
             btnCancelar.Click += new RoutedEventHandler(btnCancelar_Click);
 
-            txtNumero.TextChanged += new TextChangedEventHandler(txtNumero_TextChanged);
-            txtNome.TextChanged += new TextChangedEventHandler(txtNome_TextChanged);
-            txtTelefone.TextChanged += new TextChangedEventHandler(txtTelefone_TextChanged);
-            txtDescricao.TextChanged += new TextChangedEventHandler(txtDescricao_TextChanged);
-            txtEndereco.TextChanged += new TextChangedEventHandler(txtEndereco_TextChanged);
+            txtNumero.TextChanged += new TextChangedEventHandler(TextChanged);
+            txtNome.TextChanged += new TextChangedEventHandler(TextChanged);
+            txtTelefone.TextChanged += new TextChangedEventHandler(TextChanged);
+            txtDescricao.TextChanged += new TextChangedEventHandler(TextChanged);
+            txtEndereco.TextChanged += new TextChangedEventHandler(TextChanged);
         }
 
-        private void txtNumero_TextChanged(object sender, TextChangedEventArgs e)
+        private void TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (String.IsNullOrEmpty(txtNumero.Text))
-                txtNumero.Background = new SolidColorBrush(Colors.OrangeRed);
+            var txt = (TextBox)sender;
+            if (String.IsNullOrEmpty(txt.Text))
+                txt.Background = new SolidColorBrush(Colors.OrangeRed);
             else
-                txtNumero.Background = new SolidColorBrush(Colors.White);
-        }
-
-        private void txtNome_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (String.IsNullOrEmpty(txtNome.Text))
-                txtNome.Background = new SolidColorBrush(Colors.OrangeRed);
-            else
-                txtNome.Background = new SolidColorBrush(Colors.White);
-        }
-
-        private void txtTelefone_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (String.IsNullOrEmpty(txtTelefone.Text))
-                txtTelefone.Background = new SolidColorBrush(Colors.OrangeRed);
-            else
-                txtTelefone.Background = new SolidColorBrush(Colors.White);
-        }
-
-        private void txtDescricao_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (String.IsNullOrEmpty(txtDescricao.Text))
-                txtDescricao.Background = new SolidColorBrush(Colors.OrangeRed);
-            else
-                txtDescricao.Background = new SolidColorBrush(Colors.White);
-        }
-
-        private void txtEndereco_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (String.IsNullOrEmpty(txtEndereco.Text))
-                txtEndereco.Background = new SolidColorBrush(Colors.OrangeRed);
-            else
-                txtEndereco.Background = new SolidColorBrush(Colors.White);
+                txt.Background = new SolidColorBrush(Colors.White);
         }
 
         private void btnOk_Click(object sender, RoutedEventArgs e) =>
