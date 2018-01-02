@@ -40,11 +40,11 @@ namespace ByteBank.Agencias
             btnOk.Click += new RoutedEventHandler(btnOk_Click);
             btnCancelar.Click += new RoutedEventHandler(btnCancelar_Click);
 
-            txtNumero.TextChanged += new TextChangedEventHandler(TextChanged);
-            txtNome.TextChanged += new TextChangedEventHandler(TextChanged);
-            txtTelefone.TextChanged += new TextChangedEventHandler(TextChanged);
-            txtDescricao.TextChanged += new TextChangedEventHandler(TextChanged);
-            txtEndereco.TextChanged += new TextChangedEventHandler(TextChanged);
+            txtNumero.TextChanged += TextChanged;
+            txtNome.TextChanged += TextChanged;
+            txtTelefone.TextChanged += TextChanged;
+            txtDescricao.TextChanged += TextChanged;
+            txtEndereco.TextChanged += TextChanged;
         }
 
         private void TextChanged(object sender, TextChangedEventArgs e)
