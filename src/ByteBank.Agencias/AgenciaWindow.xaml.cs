@@ -51,30 +51,40 @@ namespace ByteBank.Agencias
         {
             if (String.IsNullOrEmpty(txtNumero.Text))
                 txtNumero.Background = new SolidColorBrush(Colors.OrangeRed);
+            else
+                txtNumero.Background = new SolidColorBrush(Colors.White);
         }
 
         private void txtNome_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (String.IsNullOrEmpty(txtNome.Text))
-                txtNumero.Background = new SolidColorBrush(Colors.OrangeRed);
+                txtNome.Background = new SolidColorBrush(Colors.OrangeRed);
+            else
+                txtNome.Background = new SolidColorBrush(Colors.White);
         }
 
         private void txtTelefone_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (String.IsNullOrEmpty(txtNumero.Text))
+            if (String.IsNullOrEmpty(txtTelefone.Text))
                 txtTelefone.Background = new SolidColorBrush(Colors.OrangeRed);
+            else
+                txtTelefone.Background = new SolidColorBrush(Colors.White);
         }
 
         private void txtDescricao_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (String.IsNullOrEmpty(txtNumero.Text))
+            if (String.IsNullOrEmpty(txtDescricao.Text))
                 txtDescricao.Background = new SolidColorBrush(Colors.OrangeRed);
+            else
+                txtDescricao.Background = new SolidColorBrush(Colors.White);
         }
 
         private void txtEndereco_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (String.IsNullOrEmpty(txtNumero.Text))
+            if (String.IsNullOrEmpty(txtEndereco.Text))
                 txtEndereco.Background = new SolidColorBrush(Colors.OrangeRed);
+            else
+                txtEndereco.Background = new SolidColorBrush(Colors.White);
         }
 
         private void btnOk_Click(object sender, RoutedEventArgs e) =>

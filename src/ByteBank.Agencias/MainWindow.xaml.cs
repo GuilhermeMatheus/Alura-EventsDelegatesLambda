@@ -96,7 +96,7 @@ namespace ByteBank.Agencias
         private void BtnEditarClick(object sender, RoutedEventArgs e)
         {
             var agenciaWindow = new AgenciaWindow(AgenciaAtual);
-            agenciaWindow.Show();
+            agenciaWindow.ShowDialog();
             if (agenciaWindow.DialogResult == true)
             {
 
