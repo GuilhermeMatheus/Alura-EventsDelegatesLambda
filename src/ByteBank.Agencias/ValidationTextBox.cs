@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace ByteBank.Agencias
 {
@@ -17,7 +18,13 @@ namespace ByteBank.Agencias
         {
             base.OnTextChanged(e);
 
-            ValidandoCampoDeTexto(Text);
+            if (ValidandoCampoDeTexto != null)
+            {
+                if (!ValidandoCampoDeTexto(Text))
+                    Background = new SolidColorBrush(Colors.OrangeRed);
+                else
+                    Background = new SolidColorBrush(Colors.White);
+            }
         }
     }
 }
