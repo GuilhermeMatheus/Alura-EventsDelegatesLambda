@@ -9,15 +9,15 @@
     <Grid>
         <StackPanel Margin="5">
             <TextBlock Text="Número" FontWeight="Bold"/>
-            <TextBox Name="txtNumero"/>
+            <local:ValidationTextBox x:Name="txtNumero"/>
             <TextBlock Text="Nome" FontWeight="Bold"/>
-            <TextBox Name="txtNome"/>
+            <local:ValidationTextBox x:Name="txtNome"/>
             <TextBlock Text="Telefone" FontWeight="Bold"/>
-            <TextBox Name="txtTelefone"/>
+            <local:ValidationTextBox x:Name="txtTelefone"/>
             <TextBlock Text="Descrição" FontWeight="Bold"/>
-            <TextBox Name="txtDescricao"/>
+            <local:ValidationTextBox x:Name="txtDescricao"/>
             <TextBlock Text="Endereço" FontWeight="Bold"/>
-            <TextBox Name="txtEndereco"/>
+            <local:ValidationTextBox x:Name="txtEndereco"/>
             <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Right">
                 <Button Margin="5" Padding="4" Name="btnOk">Ok</Button>

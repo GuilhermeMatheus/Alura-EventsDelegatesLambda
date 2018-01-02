@@ -40,20 +40,11 @@ namespace ByteBank.Agencias
             btnOk.Click += (sender, e) => DialogResult = true;
             btnCancelar.Click += (sender, e) => DialogResult = false;
 
-            txtNumero.TextChanged += TextChanged;
-            txtNome.TextChanged += TextChanged;
-            txtTelefone.TextChanged += TextChanged;
-            txtDescricao.TextChanged += TextChanged;
-            txtEndereco.TextChanged += TextChanged;
-        }
-
-        private void TextChanged(object sender, TextChangedEventArgs e)
-        {
-            var txt = (TextBox)sender;
-            if (String.IsNullOrEmpty(txt.Text))
-                txt.Background = new SolidColorBrush(Colors.OrangeRed);
-            else
-                txt.Background = new SolidColorBrush(Colors.White);
+            txtNumero.ValidandoCampoDeTexto += String.IsNullOrEmpty;
+            txtNome.ValidandoCampoDeTexto += String.IsNullOrEmpty;
+            txtTelefone.ValidandoCampoDeTexto += String.IsNullOrEmpty;
+            txtDescricao.ValidandoCampoDeTexto += String.IsNullOrEmpty;
+            txtEndereco.ValidandoCampoDeTexto += String.IsNullOrEmpty;
         }
     }
 }
