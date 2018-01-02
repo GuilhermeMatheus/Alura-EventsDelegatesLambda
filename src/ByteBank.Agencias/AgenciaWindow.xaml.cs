@@ -37,8 +37,8 @@ namespace ByteBank.Agencias
             txtDescricao.Text = _agencia.Descricao;
             txtEndereco.Text = _agencia.Endereco;
 
-            btnOk.Click += new RoutedEventHandler(btnOk_Click);
-            btnCancelar.Click += new RoutedEventHandler(btnCancelar_Click);
+            btnOk.Click += (sender, e) => DialogResult = true;
+            btnCancelar.Click += (sender, e) => DialogResult = false;
 
             txtNumero.TextChanged += TextChanged;
             txtNome.TextChanged += TextChanged;
@@ -55,11 +55,5 @@ namespace ByteBank.Agencias
             else
                 txt.Background = new SolidColorBrush(Colors.White);
         }
-
-        private void btnOk_Click(object sender, RoutedEventArgs e) =>
-            DialogResult = true;
-
-        private void btnCancelar_Click(object sender, RoutedEventArgs e) =>
-            DialogResult = false;
     }
 }
