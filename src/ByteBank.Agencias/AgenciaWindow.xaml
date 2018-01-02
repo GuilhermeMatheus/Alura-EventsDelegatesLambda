@@ -1,0 +1,28 @@
+﻿<Window x:Class="ByteBank.Agencias.AgenciaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ByteBank.Agencias"
+        mc:Ignorable="d"
+        Title="AgenciaWindow" Height="245" Width="250">
+    <Grid>
+        <StackPanel Margin="5">
+            <TextBlock Text="Número" FontWeight="Bold"/>
+            <TextBox Name="txtNumero"/>
+            <TextBlock Text="Nome" FontWeight="Bold"/>
+            <TextBox Name="txtNome"/>
+            <TextBlock Text="Telefone" FontWeight="Bold"/>
+            <TextBox Name="txtTelefone"/>
+            <TextBlock Text="Descrição" FontWeight="Bold"/>
+            <TextBox Name="txtDescricao"/>
+            <TextBlock Text="Endereço" FontWeight="Bold"/>
+            <TextBox Name="txtEndereco"/>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <Button Margin="5" Padding="4" Name="btnOk">Ok</Button>
+                <Button Margin="5" Padding="4" Name="btnCancelar">Cancelar</Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

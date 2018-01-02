@@ -24,6 +24,7 @@ namespace ByteBank.Agencias
         private ByteBankEntities _db = new ByteBankEntities();
         private ListBox _lstAgencias;
         private Button _btnApagar;
+        private Button _btnEditar;
 
         public Agencia AgenciaAtual { get; private set; }
 
@@ -57,15 +58,19 @@ namespace ByteBank.Agencias
             container.Children.Add(_lstAgencias);
             Canvas.SetTop(_lstAgencias, 15);
             Canvas.SetLeft(_lstAgencias, 15);
-
             _lstAgencias.SelectionChanged += new SelectionChangedEventHandler(LstAgenciasSelectionChanged);
 
             _btnApagar = new Button { Width = 120, Content = "Apagar" };
             container.Children.Add(_btnApagar);
             Canvas.SetBottom(_btnApagar, 15);
             Canvas.SetRight(_btnApagar, 15);
-
             _btnApagar.Click += new RoutedEventHandler(BtnApagarClick);
+
+            _btnEditar = new Button { Width = 120, Content = "Editar" };
+            container.Children.Add(_btnEditar);
+            Canvas.SetBottom(_btnEditar, 15);
+            Canvas.SetRight(_btnEditar, 15+15+120);
+            _btnEditar.Click += new RoutedEventHandler(BtnEditarClick);
 
             AtualizarLista();
         }
@@ -86,6 +91,16 @@ namespace ByteBank.Agencias
 
             if (resposta == MessageBoxResult.Yes)
                 ApagarAgenciaAtual();
+        }
+
+        private void BtnEditarClick(object sender, RoutedEventArgs e)
+        {
+            var agenciaWindow = new AgenciaWindow(AgenciaAtual);
+            agenciaWindow.Show();
+            if (agenciaWindow.DialogResult == true)
+            {
+
+            }
         }
 
         private void AtualizarLista()
